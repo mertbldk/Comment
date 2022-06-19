@@ -1,0 +1,283 @@
+@mixin flex($jc,$ai){
+    display: flex;
+    justify-content: $jc;
+    align-items: $ai;
+}
+@mixin BorderRadius($number){
+    border-radius: $number;
+    -webkit-border-radius: $number;
+    -moz-border-radius: $number;
+    -ms-border-radius: $number;
+    -o-border-radius: $number;
+}
+@mixin font($size,$color,$weight){
+    font-size: $size;
+    color: $color;
+    font-weight: $weight;
+}
+@mixin Transition($value){
+    transition: $value;
+    -webkit-transition: $value;
+    -moz-transition: $value;
+    -ms-transition: $value;
+    -o-transition: $value;
+}
+
+#AllComments{
+    @include flex(space-evenly,center);
+    width: 100%;
+    flex-direction: column;
+    #commentCap{
+        @include flex(space-evenly,center);
+        @include BorderRadius(5px);
+        width: 90%;
+        margin: 20px 0;
+        background-color: rgb(48, 47, 47);
+        flex-direction: column;
+        #commentİmgNameDate{
+            @include flex(space-between,center);
+            height: 5em;
+            width: 95%;
+            position: relative;
+            #commentİmgName{
+                @include flex(space-between,center);
+                height: 100%;
+                #commentİmg{
+                    width: 3em;
+                    height: 3em;
+                    img{
+                        @include BorderRadius(5px);
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+                #commentName{
+                    @include font(1.1em,white,bold);
+                    margin-left: 20px;
+                }
+            }
+            #commentDate{
+                @include font(1em,white,bold);
+            }
+            #commentDelet{
+                @include BorderRadius(5px);
+                @include font(1.1em,white,bold);
+                @include Transition(200ms all);
+                position: absolute;
+                right: 0;
+                top: -10px;
+                width: 2em;
+                height: 1.5em;
+                background-color: rgb(255, 72, 72);
+                outline: none;
+                border: 0;
+                cursor: pointer;
+                &:hover{
+                    box-shadow: 0 0 30px rgb(255, 72, 72);
+                }
+            }
+        }
+        #commentText{
+            @include flex(center, center);
+            width: 95%;
+            p{
+                @include BorderRadius(5px);
+                @include font(0.8em,white,bold);
+                width: 100%;
+                height: 100%;
+                background-color: rgb(51, 51, 51);
+                padding: 10px;
+                word-break: break-all;
+            }
+        }
+        #commentLikeDisklikeTocomment{
+            @include flex(flex-end,center);
+            width: 95%;
+            height: 3em;
+            .commentLDTC{
+                margin-right: 20px;
+                span:nth-child(1){
+                    @include Transition(200ms all);
+                    @include font(1em,none,bold);
+                    margin: 0 5px;
+                    cursor: pointer;
+                }
+                span:nth-child(2){
+                    @include font(1em,white,bold);
+                }
+                .commentCom{
+                    color: cornsilk;
+                }
+                .commentLike{
+                    color: rgb(72, 255, 72);
+                }
+                .commentDisklike{
+                    color: rgb(255, 72, 72);
+                }
+            }
+        }
+    }
+    #commentToCommentCap{
+        @include flex(space-evenly,center);
+        width: 100%;
+        flex-direction: column;
+        #commentToCommentTextarea{
+            @include flex(space-evenly,center);
+            width: 90%;
+            height: 15em;
+            flex-direction: column;
+            textarea{
+                @include BorderRadius(5px);
+                @include font(0.8em,white,bold);
+                width: 100%;
+                height: 60%;
+                background-color: rgb(51, 51, 51);
+                outline: none;
+                padding: 10px;
+                resize: none;
+            }
+            button{
+                @include BorderRadius(5px);
+                @include Transition(200ms all);
+                @include font(1em,white,bold);
+                width: 10em;
+                height: 2.5em;
+                background-color: rgb(228, 152, 11);
+                outline: none;
+                border: 0;
+                cursor: pointer;
+                &:hover{
+                    box-shadow: 0 0 30px rgb(228, 152, 11);
+                }
+            }
+        }
+        #commentToComment{
+            @include flex(space-evenly, center);
+            @include BorderRadius(5px);
+            width: 90%;
+            flex-direction: column;
+            background-color: rgb(43, 42, 42);
+            margin-bottom: 20px;
+            #commentToCommentİmgNameDate{
+                @include flex(space-between, center);
+                width: 95%;
+                height: 5em;
+                position: relative;
+                #commentToCommmentİmgName{
+                    @include flex(space-between, center);
+                    width: 7.5em;
+                    height: 100%;
+                    #commentToCommentİmg{
+                        width: 3.2em;
+                        height: 3.2em;
+                        img{
+                            @include BorderRadius(5px);
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+                    }
+                    #commentToCommentName{
+                        @include font(1em,white,bold);
+                    }
+                }
+                #commentToCommentDelet{
+                    @include BorderRadius(5px);
+                    @include Transition(200ms all);
+                    @include font(1em,white,bold);
+                    position: absolute;
+                    right: 0;
+                    top: -10px;
+                    width: 2em;
+                    height: 1.5em;
+                    background-color: rgb(255, 72, 72);
+                    outline: none;
+                    border: 0;
+                    cursor: pointer;
+                    &:hover{
+                        box-shadow: 0 0 30px rgb(255, 72, 72);
+                    }
+                }
+            }
+            #commentToCommmentDate{
+                @include font(1em,white,bold);
+            }
+            #commentToCommentText{
+                @include flex(center,center);
+                width: 95%;
+                p{
+                    @include BorderRadius(5px);
+                    @include font(0.8em,white,bold);
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgb(51, 51, 51);
+                    padding: 10px;
+                }
+            }
+            #commentToCommentLikeDisklikeTocomment{
+                @include flex(flex-end,center);
+                width: 95%;
+                height: 3em;
+                .commentToLDC{
+                    margin-right: 20px;
+                    span:nth-child(1){
+                        @include BorderRadius(5px);
+                        @include Transition(200ms all);
+                        @include font(1em,none,bold);
+                        margin: 0 5px;
+                        cursor: pointer;
+                    }
+                    span:nth-child(2){
+                        @include font(1em,white,bold);
+                    }
+                    .commentToCommentCornsilk{
+                        color: cornsilk;
+                    }
+                    .commentToCommentLike{
+                        color: rgb(72, 255, 72);
+                    }
+                    .commentToCommentDisklike{
+                        color: rgb(255, 72, 72);
+                    }
+                }
+            }
+        }
+    }
+    #noComment{
+        @include BorderRadius(5px);
+        @include flex(center,center);
+        @include font(1em,white,bold);
+        background-color: rgb(51, 51, 51);
+        width: 13em;
+        height: 3em;
+    }
+    #TheRestCom{
+        @include BorderRadius(5px);
+        @include flex(center,center);
+        @include font(1em,white,bold);
+        @include Transition(200ms all);
+        background-color: rgb(228, 152, 11);
+        padding: 10px 20px;
+        margin: 20px 0 50px 0;
+        cursor: pointer;
+        border: 0;
+        &:hover{
+            box-shadow: 0 0 30px rgb(228, 152, 11);
+        }
+    }
+    #TheRestComToCom{
+        @include BorderRadius(5px);
+        @include flex(center,center);
+        @include font(1em,white,bold);
+        @include Transition(200ms all);
+        background-color: rgb(228, 152, 11);
+        padding: 10px 20px;
+        margin: 20px 0 40px 0;
+        cursor: pointer;
+        border: 0;
+        &:hover{
+            box-shadow: 0 0 30px rgb(228, 152, 11);
+        }
+    }
+}
